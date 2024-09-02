@@ -1,5 +1,5 @@
+
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,26 +32,71 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.sizeOf(context).width);
+    print(MediaQuery.of(context).size.width);
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blue,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: Colors.grey,
-        child: FractionallySizedBox(
-          widthFactor: 0.5,
-          heightFactor: 0.4,
-          child: Container(
-            color: Colors.green,
-
-
-          ),
-        ),
-      )
+      // body: SizedBox(
+      //   width: MediaQuery.of(context).size.width,
+      //   child: Column(
+      //     children: [
+      //       // Flexible(
+      //       //   flex: 2,
+      //       //   child: Container(
+      //       //     color: Colors.blue,
+      //       //     width: 100,
+      //       //   ),
+      //       // ),
+      //       // Flexible(
+      //       //   flex: 5,
+      //       //   child: Container(
+      //       //     color: Colors.green,
+      //       //     width: 200,
+      //       //   ),
+      //       // ),
+      //       // Flexible(
+      //       //   flex: 8,
+      //       //   child: Container(
+      //       //     color: Colors.yellow,
+      //       //     width: 200,
+      //       //   ),
+      //       // ),
+      //       // Expanded(
+      //       //   child: Container(
+      //       //     color: Colors.pink,
+      //       //     width: 200,
+      //       //     height: 100,
+      //       //   ),
+      //       // ),
+      //       // Expanded(
+      //       //   child: Container(
+      //       //     color: Colors.orange,
+      //       //     width: 200,
+      //       //   ),
+      //       // ),
+      //       // AspectRatio(
+      //       //   aspectRatio: 16 / 9,
+      //       //   child: Container(
+      //       //     color: Colors.pink,
+      //       //   ),
+      //       // ),
+      //       LayoutBuilder(
+      //         builder: (context, constraints) {
+      //           return Text(constraints.maxWidth.toString());
+      //         },
+      //       )
+      //     ],
+      //   ),
+      // ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Text(constraints.maxWidth.toString());
+        },
+      ),
     );
   }
 }
