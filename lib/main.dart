@@ -32,67 +32,26 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // MediaQuery
-    MediaQueryData mediaQuery = MediaQuery.of(context);
-    print(mediaQuery.size.width);
-    print(mediaQuery.size.height);
-    print(mediaQuery.size.aspectRatio);
-    print(mediaQuery.size.flipped.height);
 
-    print(mediaQuery.devicePixelRatio);
-
-    if (mediaQuery.size.width < 640) {
-      print('This is a Phone');
-    } else if (mediaQuery.size.width > 640 && mediaQuery.size.width < 1008) {
-      print('This is a Tablet');
-    } else {
-      print('Laptop/Dextop');
-    }
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
         backgroundColor: Colors.cyan,
       ),
-      /*  body: OrientationBuilder(
-        builder: (context, Orientation orientation) {
-          print(orientation);
-          if (orientation == Orientation.portrait){
-            return Column(
-            children: [
-              Wrap(
-                // mainAxisAlignment
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 15,
-                children: [
-                  Text('fghmgmj'),
-                  Text('fggfngfdfdfdfdfdfdfdfdfdfdfdhmgmj'),
-                  Text('fghghnfdvvvvvvvvvvvvvdghmgmj'),
-                  Text('fghmggavvvvvvhnsfdghmj'),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        color: Colors.grey,
+        child: FractionallySizedBox(
+          widthFactor: 0.5,
+          heightFactor: 0.4,
+          child: Container(
+            color: Colors.green,
 
-                ],
-              ),
-            ],
-          );
-          } else {
-            return Center(
-              child: Text('Too Big Screen'),
-            );
-          }
-        }
-      ), */
-      body: LayoutBuilder(
-        builder: (context, BoxConstraints constraints0) {
-          if (mediaQuery.size.width < 640) {
-            return Text('This is a Phone');
-          } else if (mediaQuery.size.width > 640 &&
-              mediaQuery.size.width < 1008) {
-            return Text('This is a Tablet');
-          } else {
-            return Text('Laptop/Dextop');
-          }
-        },
-      ),
+
+          ),
+        ),
+      )
     );
   }
 }
